@@ -1,11 +1,10 @@
 from fastapi import FastAPI
-from backend.api import chatbot
+from backend.api import chatbot  # ye import ho
 
-app = FastAPI()
+app = FastAPI(title="Smart AI Platform")
 
-app.include_router(chatbot.router, prefix="/chatbot")
+app.include_router(chatbot.router, prefix="/chatbot")  # router include
 
 @app.get("/")
 def home():
     return {"status": "Smart AI Platform running"}
-

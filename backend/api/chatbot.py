@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from pydantic import BaseModel
-from ml.chatbot.response_engine import get_response
+from ml.chatbot.response_engine import get_response  # path sahi ho
 
 router = APIRouter()
 
