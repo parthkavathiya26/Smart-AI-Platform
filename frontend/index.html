@@ -18,8 +18,14 @@
       placeholder="Type a message..."
       onkeydown="handleKey(event)"
     />
+    <input type="text" id="predictInput" placeholder="Enter input for prediction">
+    <button id="predictBtn">Get Prediction</button>
+    <div id="predictionResult"></div>
 
     <button onclick="sendMessage()">Send</button>
+    <div id="recommendation-container"></div>
+    <button id="getRecBtn">Get Recommendations</button>
+
   </div>
 
   <script src="js/app.js"></script>

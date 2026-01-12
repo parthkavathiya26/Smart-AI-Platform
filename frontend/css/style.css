@@ -47,3 +47,9 @@ button {
   padding: 8px 12px;
   cursor: pointer;
 }
+.recommend-item {
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
