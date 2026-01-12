@@ -1,29 +1,31 @@
 async function sendMessage() {
-    const inputBox = document.getElementById("userInput");
-    const message = inputBox.value;
-    if (!message) return;
+  const inputBox = document.getElementById("userInput");
+  const input = inputBox.value;
 
-    // Display user message
-    const chatbox = document.getElementById("chatbox");
-    chatbox.innerHTML += `<p><b>You:</b> ${message}</p>`;
-    inputBox.value = "";
+  // empty message block
+  if (!input.trim()) return;
 
-    try {
-        // Send message to backend
-        const response = await fetch("http://127.0.0.1:8000/chatbot/chat", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ message: message })
-        });
+  const response = await fetch("http://127.0.0.1:8000/chatbot/chat", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ message: input })
+  });
 
-        const data = await response.json();
+  const data = await response.json();
 
-        // Display chatbot response
-        chatbox.innerHTML += `<p><b>Bot:</b> ${data.response}</p>`;
-        chatbox.scrollTop = chatbox.scrollHeight;
+  document.getElementById("messages").innerHTML +=
+    `<p><b>You:</b> ${input}</p>
+     <p><b>Bot:</b> ${data.response}</p>`;
 
-    } catch (error) {
-        console.error("Error:", error);
-        chatbox.innerHTML += `<p style="color:red;"><b>Error connecting to bot</b></p>`;
-    }
+  // input clear
+  inputBox.value = "";
+}
+
+/* 👇👇 YAHI PASTE KARNA HAI — sendMessage ke niche */
+function handleKey(event) {
+  if (event.key === "Enter") {
+    sendMessage();
+  }
 }
