@@ -1,3 +1,7 @@
-def get_recommendation(user_id):
-    # dummy example, later ML model integrate karenge
-    return ["Item A", "Item B", "Item C"]
+def get_recommendation(query: str):
+    # abhi dummy logic (later ML model lagega)
+    return [
+        f"{query} for beginners",
+        f"Advanced {query}",
+        f"{query} projects"
+    ]

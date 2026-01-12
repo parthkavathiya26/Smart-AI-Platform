@@ -8,7 +8,13 @@ def test_recommendation():
     return {"message": "Recommendation API running"}
 
 @router.post("/recommend")
-def recommend_item(user_id: int):
-    # example function call
-    recommended_items = get_recommendation(user_id)
-    return {"user_id": user_id, "recommendations": recommended_items}
+def recommend_item(data: dict):
+    query = data.get("query", "")
+
+    # abhi simple recommendation logic
+    recommendations = get_recommendation(query)
+
+    return {
+        "query": query,
+        "recommendations": recommendations
+    }

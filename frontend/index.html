@@ -7,9 +7,12 @@
 </head>
 <body>
 
-  <h2 style="text-align:center;">Smart AI Platform - Chatbot</h2>
+  <h2 style="text-align:center;">🤖 Smart AI Platform</h2>
 
   <div id="chatbox">
+
+    <!-- ================= CHATBOT ================= -->
+    <h3>Chatbot</h3>
     <div id="messages"></div>
 
     <input
@@ -18,16 +21,36 @@
       placeholder="Type a message..."
       onkeydown="handleKey(event)"
     />
-    <input type="text" id="predictInput" placeholder="Enter input for prediction">
-    <button id="predictBtn">Get Prediction</button>
-    <div id="predictionResult"></div>
-
     <button onclick="sendMessage()">Send</button>
-    <div id="recommendation-container"></div>
+
+    <hr>
+
+    <!-- ================= SALES PREDICTION ================= -->
+    <h3>Sales Prediction</h3>
+
+    <input type="number" id="tv" placeholder="TV Spend">
+    <input type="number" id="radio" placeholder="Radio Spend">
+    <input type="number" id="news" placeholder="Newspaper Spend">
+
+    <button onclick="predictSales()">Predict</button>
+
+    <p id="salesPredictionResult"></p>
+
+    <canvas id="salesChart" width="400" height="200"></canvas>
+
+    <hr>
+
+    <!-- ================= RECOMMENDATION ================= -->
+    <h3>Recommendations</h3>
+
     <button id="getRecBtn">Get Recommendations</button>
+    <div id="recommendation-container"></div>
 
   </div>
 
+  <!-- IMPORTANT: chart.js FIRST -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="js/app.js"></script>
+
 </body>
 </html>
