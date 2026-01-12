@@ -1,10 +1,18 @@
 async function sendMessage() {
   const inputBox = document.getElementById("userInput");
-  const input = inputBox.value;
+  const input = inputBox.value.trim();
 
-  // empty message block
-  if (!input.trim()) return;
+  if (input === "") return;
 
+  const messagesDiv = document.getElementById("messages");
+
+  // Show user message
+  messagesDiv.innerHTML +=
+    `<div class="message user"><b>You:</b> ${input}</div>`;
+
+  inputBox.value = "";
+
+  // Call backend
   const response = await fetch("http://127.0.0.1:8000/chatbot/chat", {
     method: "POST",
     headers: {
@@ -15,15 +23,15 @@ async function sendMessage() {
 
   const data = await response.json();
 
-  document.getElementById("messages").innerHTML +=
-    `<p><b>You:</b> ${input}</p>
-     <p><b>Bot:</b> ${data.response}</p>`;
+  // Show bot reply
+  messagesDiv.innerHTML +=
+    `<div class="message bot"><b>Bot:</b> ${data.response}</div>`;
 
-  // input clear
-  inputBox.value = "";
+  // Auto scroll
+  messagesDiv.scrollTop = messagesDiv.scrollHeight;
 }
 
-/* 👇👇 YAHI PASTE KARNA HAI — sendMessage ke niche */
+// Enter key support
 function handleKey(event) {
   if (event.key === "Enter") {
     sendMessage();

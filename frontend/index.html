@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Smart AI Platform</title>
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <title>Smart AI Platform</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<div id="chatbox">
-  <div id="messages"></div>
-  <input 
-  type="text" 
-  id="userInput" 
-  placeholder="Type a message..." 
-  onkeydown="handleKey(event)">
 
-  <button onclick="sendMessage()">Send</button>
-  
-</div>
-<script src="js/app.js"></script>
+  <h2 style="text-align:center;">Smart AI Platform - Chatbot</h2>
+
+  <div id="chatbox">
+    <div id="messages"></div>
+
+    <input
+      type="text"
+      id="userInput"
+      placeholder="Type a message..."
+      onkeydown="handleKey(event)"
+    />
+
+    <button onclick="sendMessage()">Send</button>
+  </div>
+
+  <script src="js/app.js"></script>
 </body>
 </html>
