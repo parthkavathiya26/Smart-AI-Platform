@@ -1,0 +1,13 @@
+intent,pattern,response
+greeting,hello,Hello! How can I help you?
+greeting,hi,Hi there! How can I assist?
+greeting,hey,Hey! What can I do for you?
+goodbye,bye,Goodbye! Have a great day.
+goodbye,see you,See you soon!
+thanks,thank you,You're welcome!
+thanks,thanks a lot,Happy to help!
+order_status,where is my order,Please share your order ID.
+order_status,track my order,I can help you track your order.
+refund,refund policy,Our refund policy is 7 days.
+refund,i want refund,Please contact support for refund processing.
+help,help me,I am here to help you.
