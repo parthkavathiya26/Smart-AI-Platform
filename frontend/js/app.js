@@ -5,11 +5,15 @@ async function sendMessage() {
   if (input === "") return;
 
   const messagesDiv = document.getElementById("messages");
+  const typingDiv = document.getElementById("typing");
 
   messagesDiv.innerHTML += `
     <div class="message user"><b>You:</b> ${input}</div>
   `;
   inputBox.value = "";
+
+  // show typing
+  typingDiv.style.display = "block";
 
   try {
     const response = await fetch("http://127.0.0.1:8000/chatbot/chat", {
@@ -18,9 +22,10 @@ async function sendMessage() {
       body: JSON.stringify({ message: input })
     });
 
-    if (!response.ok) throw new Error(response.status);
-
     const data = await response.json();
+
+    // hide typing
+    typingDiv.style.display = "none";
 
     messagesDiv.innerHTML += `
       <div class="message bot"><b>Bot:</b> ${data.response}</div>
@@ -28,18 +33,13 @@ async function sendMessage() {
     messagesDiv.scrollTop = messagesDiv.scrollHeight;
 
   } catch (err) {
-    console.error(err);
+    typingDiv.style.display = "none";
     messagesDiv.innerHTML += `
-      <div class="message bot"><b>Bot:</b> Error fetching response</div>
+      <div class="message bot"><b>Bot:</b> Error</div>
     `;
   }
 }
 
-function handleKey(event) {
-  if (event.key === "Enter") {
-    sendMessage();
-  }
-}
 
 // ================= RECOMMENDATION =================
 const RECOMMEND_API = "http://127.0.0.1:8000/recommendation/recommend";
