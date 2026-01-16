@@ -1,58 +1,110 @@
+/* ---------------- BODY ---------------- */
 body {
-  font-family: Arial, sans-serif;
-  background: #f2f2f2;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #d8eefe, #fff0f5);
+  margin: 0;
+  padding: 0;
 }
 
+/* ---------------- CHATBOX ---------------- */
 #chatbox {
-  width: 350px;
+  width: 400px;
   margin: 30px auto;
-  background: #ffffff;
-  border-radius: 10px;
-  padding: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  background: #fefefe;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
 }
 
+/* ---------------- HEADINGS ---------------- */
+h2 {
+  text-align: center;
+  color: #1e3a8a;
+}
+
+h3 {
+  color: #2563eb;
+  margin-bottom: 15px;
+}
+
+/* ---------------- MESSAGES ---------------- */
 #messages {
-  height: 300px;
+  height: 350px;
   overflow-y: auto;
   margin-bottom: 10px;
   display: flex;
   flex-direction: column;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid #93c5fd;
+  background: linear-gradient(to bottom, #e0f2fe, #f0f9ff);
 }
 
 .message {
-  padding: 8px 12px;
+  padding: 10px 15px;
   margin: 5px 0;
-  border-radius: 8px;
+  border-radius: 15px;
   max-width: 80%;
+  font-size: 15px;
+  word-wrap: break-word;
 }
 
 .user {
-  background: #d1e7dd;
+  background: linear-gradient(to right, #3b82f6, #60a5fa);
+  color: white;
   align-self: flex-end;
+  box-shadow: 0 2px 8px rgba(59,130,246,0.4);
 }
 
 .bot {
-  background: #e2e3e5;
+  background: linear-gradient(to right, #fef3c7, #fde68a);
+  color: #78350f;
   align-self: flex-start;
+  box-shadow: 0 2px 8px rgba(252,211,77,0.4);
 }
 
+/* ---------------- INPUTS & BUTTONS ---------------- */
 input {
   width: 75%;
-  padding: 8px;
+  padding: 10px;
   margin-right: 5px;
+  border-radius: 12px;
+  border: 1px solid #3b82f6;
+  font-size: 15px;
+}
+
+input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 5px rgba(59,130,246,0.4);
+  outline: none;
 }
 
 button {
-  padding: 8px 12px;
+  padding: 10px 15px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(to right, #2563eb, #3b82f6);
+  color: white;
   cursor: pointer;
+  font-weight: bold;
 }
+
+button:hover {
+  background: linear-gradient(to right, #1e40af, #2563eb);
+}
+
+/* ---------------- RECOMMENDATIONS ---------------- */
 .recommend-item {
-    padding: 10px;
-    margin: 5px 0;
-    background-color: #f0f0f0;
-    border-radius: 5px;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 10px;
+  background: linear-gradient(to right, #fbcfe8, #f472b6);
+  color: #881337;
+  font-weight: 500;
+  box-shadow: 0 2px 6px rgba(248,113,184,0.4);
 }
+
+/* ---------------- TYPING INDICATOR ---------------- */
 .typing {
   font-style: italic;
   color: gray;
@@ -64,16 +116,33 @@ button {
   animation: blink 1.4s infinite both;
 }
 
-.typing span:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.typing span:nth-child(3) {
-  animation-delay: 0.4s;
-}
+.typing span:nth-child(2) { animation-delay: 0.2s; }
+.typing span:nth-child(3) { animation-delay: 0.4s; }
 
 @keyframes blink {
   0% { opacity: .2; }
   20% { opacity: 1; }
   100% { opacity: .2; }
+}
+
+/* ---------------- SALES PREDICTION ---------------- */
+#salesPredictionResult {
+  font-weight: bold;
+  color: #1e3a8a;
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+canvas {
+  margin-top: 10px;
+  border-radius: 12px;
+  background: #f0f9ff;
+}
+
+/* ---------------- RECOMMENDATION EXPLANATION ---------------- */
+.explanation {
+  font-size: 13px;
+  font-style: italic;
+  color: #6b7280;
+  margin-top: 5px;
 }
