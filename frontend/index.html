@@ -7,54 +7,57 @@
 </head>
 <body>
 
-  <h2 style="text-align:center;">🤖 Smart AI Platform</h2>
+<h2 style="text-align:center;">🤖 Smart AI Platform</h2>
 
-  <div id="chatbox">
+<div id="chatbox">
 
-    <!-- ================= CHATBOT ================= -->
-    <h3>Chatbot</h3>
-    <div id="messages"></div>
+  <!-- ================= CHATBOT ================= -->
+  <h3>Chatbot</h3>
 
-    <input
-      type="text"
-      id="userInput"
-      placeholder="Type a message..."
-      onkeydown="handleKey(event)"
-    />
-    <button onclick="sendMessage()">Send</button>
+  <div id="messages"></div>
 
-    <hr>
-
-    <!-- ================= SALES PREDICTION ================= -->
-    <h3>Sales Prediction</h3>
-
-    <input type="number" id="tv" placeholder="TV Spend">
-    <input type="number" id="radio" placeholder="Radio Spend">
-    <input type="number" id="news" placeholder="Newspaper Spend">
-
-    <button onclick="predictSales()">Predict</button>
-
-    <p id="salesPredictionResult"></p>
-
-    <canvas id="salesChart" width="400" height="200"></canvas>
-
-    <hr>
-
-    <!-- ================= RECOMMENDATION ================= -->
-    <h3>Recommendations</h3>
-
-    <button id="getRecBtn">Get Recommendations</button>
-    <div id="recommendation-container"></div>
-
+  <!-- Typing Indicator -->
+  <div id="typing" class="typing" style="display:none;">
+    Bot is typing<span>.</span><span>.</span><span>.</span>
   </div>
 
-  <!-- IMPORTANT: chart.js FIRST -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="js/app.js"></script>
-   <!-- Bot typing indicator -->
-<div id="typing" class="typing" style="display:none;">
-  Bot is typing<span>.</span><span>.</span><span>.</span>
+  <!-- Only one input box now -->
+  <input
+    type="text"
+    id="userInput"
+    placeholder="Type a message..."
+    onkeydown="handleKey(event)"
+  >
+  <button onclick="sendMessage()">Send</button>
+
+  <hr>
+
+  <!-- ================= SALES PREDICTION ================= -->
+  <h3>Sales Prediction</h3>
+
+  <input type="number" id="tv" placeholder="TV Spend">
+  <input type="number" id="radio" placeholder="Radio Spend">
+  <input type="number" id="news" placeholder="Newspaper Spend">
+
+  <button onclick="predictSales()">Predict</button>
+
+  <p id="salesPredictionResult"></p>
+
+  <canvas id="salesChart" width="400" height="200"></canvas>
+
+  <hr>
+
+  <!-- ================= RECOMMENDATION ================= -->
+  <h3>Recommendations</h3>
+
+  <button id="getRecBtn">Get Recommendations</button>
+  <div id="recommendation-container"></div>
+
 </div>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="js/app.js"></script>
 
 </body>
 </html>
